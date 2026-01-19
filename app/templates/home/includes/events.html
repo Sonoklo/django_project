@@ -1,0 +1,188 @@
+{% load static %}
+
+<section id="events" class="events section light-background">
+      {% include "includes/events.html" %}
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Events</span>
+        <h2>Events</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-delay="150">
+                <div class="seasonal-hero">
+                    {% if event %}
+                        <span class="seasonal-badge">Limited Time</span>
+                        <h2>{{ event.name }}</h2>
+                        <p>{{ event.name }} is now</p>
+                        <div class="festival-dates">
+                            <i class="bi bi-calendar-event"></i>
+                            <span>{{ event.from_date }} - {{ event.to_date }}</span>
+                        </div>
+                    {% else %}
+                        <p>No event</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+            {% for category in event_categories %}
+                <div class="col-lg-6" data-aos="slide-right" data-aos-delay="250">
+                    <div class="feature-card primary">
+                        <div class="feature-visual">
+                            <img src="/media/{{ category.spec_event.img_link }}" alt="{{ category.spec_event.name }}" class="img-fluid">
+                            <div class="feature-badge">
+                                <i class="bi bi-star-fill"></i>
+                                <span>{{ category.spec_event.name }}</span> 
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3>{{ category.spec_event.name }}</h3>
+                            <p>{{ category.spec_event.desc }}</p> 
+                            <div class="feature-highlights">
+                                <div class="highlight-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Farm-to-Table Ingredients</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Locally Sourced Produce</span>
+                                </div>
+                            </div>
+                            <a href="#" class="feature-link">Explore Menu <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+        <div class="awards-section" data-aos="fade-up" data-aos-delay="200">
+          <div class="row align-items-center">
+            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="250">
+              <div class="awards-content">
+                <h3>Recognition &amp; Awards</h3>
+                <p>At enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+            <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
+              <div class="awards-grid">
+                <div class="award-item">
+                  <div class="award-icon">
+                    <i class="bi bi-trophy-fill"></i>
+                  </div>
+                  <div class="award-details">
+                    <h4>Best Restaurant 2024</h4>
+                    <span>City Dining Awards</span>
+                  </div>
+                </div>
+                <div class="award-item">
+                  <div class="award-icon">
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="award-details">
+                    <h4>5-Star Rating</h4>
+                    <span>Local Food Guide</span>
+                  </div>
+                </div>
+                <div class="award-item">
+                  <div class="award-icon">
+                    <i class="bi bi-gem"></i>
+                  </div>
+                  <div class="award-details">
+                    <h4>Excellence Award</h4>
+                    <span>Culinary Institute</span>
+                  </div>
+                </div>
+                <div class="award-item">
+                  <div class="award-icon">
+                    <i class="bi bi-heart-fill"></i>
+                  </div>
+                  <div class="award-details">
+                    <h4>Customer Choice</h4>
+                    <span>Community Favorite</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="community-section" data-aos="fade-up" data-aos-delay="200">
+          <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="250">
+              <div class="community-card">
+                <div class="community-header">
+                  <div class="community-icon">
+                    <i class="bi bi-people-fill"></i>
+                  </div>
+                  <div>
+                    <h3>Community Involvement</h3>
+                    <p>Supporting local farmers and charities since 2015</p>
+                  </div>
+                </div>
+                <div class="community-stats">
+                  <div class="stat-row">
+                    <div class="stat-item">
+                      <span class="stat-number">$50K+</span>
+                      <span class="stat-label">Donated to Local Charities</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-number">25+</span>
+                      <span class="stat-label">Local Farm Partners</span>
+                    </div>
+                  </div>
+                  <div class="stat-row">
+                    <div class="stat-item">
+                      <span class="stat-number">100+</span>
+                      <span class="stat-label">Community Events Hosted</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-number">500+</span>
+                      <span class="stat-label">Volunteer Hours</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+              <div class="sustainability-card">
+                <div class="sustainability-header">
+                  <div class="sustainability-icon">
+                    <i class="bi bi-recycle"></i>
+                  </div>
+                  <div>
+                    <h3>Eco-Friendly Practices</h3>
+                    <p>Committed to sustainable dining and zero waste</p>
+                  </div>
+                </div>
+                <div class="sustainability-features">
+                  <div class="feature-item">
+                    <i class="bi bi-leaf-fill"></i>
+                    <span>100% Compostable Packaging</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-water"></i>
+                    <span>Water Conservation Program</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-lightning-fill"></i>
+                    <span>Renewable Energy Powered</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="bi bi-truck"></i>
+                    <span>Local Sourcing Priority</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+</section><!-- /Events Section -->

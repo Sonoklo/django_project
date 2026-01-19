@@ -1,6 +1,17 @@
 from django.shortcuts import render,redirect
-from .models import *
-from .forms import BookTableForm, BookBusinessTableForm, ClientConnForm
+from .models.event import *
+from .models.dishes import *
+from .models.admin_tg import *
+from .models.book_table import *
+from .models.site import *
+from .models.restourant import *
+from .models.chef import *
+from .models.hours import *
+from .models.category import *
+from .models.comments import *
+from .models.client_conn import *
+from .forms.client_conn import *
+from .forms.book_table import *
 from django.contrib import messages
 
 # Create your views here.
@@ -31,11 +42,7 @@ def main(request):
 
     return render(request, "index.html", context=context)
 
-# /book-table-create/ 
 def book_table_create(request):
-    # validate form 
-    # create element
-    # redirect to main
     if request.method == "POST":
         form_book_table = BookTableForm(request.POST)
         if form_book_table.is_valid():

@@ -1,0 +1,58 @@
+{% load static %}
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% block header %}
+  {% include "includes/header.html" %}
+{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section id="hero" class="hero section dark-background">
+    {% include "includes/hero.html" %}
+  </section><!-- /Hero Section -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    {% include "includes/about.html" %}
+  </section><!-- /About Section -->
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu section">
+    {% include "includes/menu.html" %}
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials section light-background">
+    {% include "includes/testimonials.html" %}
+  </section>
+
+  <!-- Chefs Section -->
+  <section id="chefs" class="chefs section">
+    {% include "includes/chefs.html" %}
+  </section>
+
+  <!-- Book A Table Section -->  
+  <section id="book-a-table" class="book-a-table section light-background">
+    {% include "includes/book_bis.html" %}
+  </section><!--/Location Section-->
+
+  <!-- Events Section -->
+  <section id="events" class="events section light-background">
+    {% include "includes/events.html" %}
+  </section><!-- /Events Section -->
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery section">
+    {% include "includes/gallery.html" %}
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section light-background">
+    {% include "includes/contact.html" %}
+  </section>
+{% endblock %}
+
+</html>

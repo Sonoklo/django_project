@@ -1,0 +1,83 @@
+{% load static %}
+<section id="hero" class="hero section dark-background">
+
+    <div class="hero-background">
+        <video autoplay="" muted="" loop="" playsinline="">
+        <source src="{% static 'img/restaurant/video-4.mp4' %}" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+        <div class="row">
+        <div class="col-lg-8">
+            <div class="hero-text" data-aos="fade-up" data-aos-delay="100">
+            <span class="tagline">Experience Culinary Excellence</span>
+            <h1 class="hero-title">Savor Every Moment at Platia</h1>
+            <p class="hero-description">Indulge in authentic Italian cuisine crafted with passion and the finest ingredients. From traditional recipes passed down through generations to innovative culinary creations, we offer an unforgettable dining experience.</p>
+
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
+                <a href="#" class="btn btn-primary">Book a Table</a>
+                <a href="#" class="btn btn-outline">View Menu</a>
+            </div>
+
+            <div class="hero-features" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-item">
+                    <i class="bi bi-clock"></i>
+                    <div class="feature-text">
+                    <span class="label">Open Daily</span>
+                    {% if restourant_info %}
+                        <span class="value">{{ restourant_info.start_time }} - {{ restourant_info.end_time }}</span>
+                    {% else %}
+                        <span class="value">11:00 AM - 11:00 PM</span>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <div class="feature-text">
+                    <span class="label">Location</span>
+                    {% if restourant_info %}
+                        <span class="value">{{ restourant_info.location }}</span>
+                    {% else %}
+                        <span class="value">123</span>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-telephone"></i>
+                    <div class="feature-text">
+                    <span class="label">Reservations</span>
+                    {% if restourant_info %}
+                        <span class="value">{{ restourant_info.phone }}</span>
+                    {% else %}
+                        <span class="value">+1 (212) 555-7890</span>
+                    {% endif %}
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="booking-card" data-aos="fade-left" data-aos-delay="200">
+            <h3>Make a Reservation</h3>
+            <form method="post" action="{% url 'book_create' %}">
+                {% csrf_token %}
+                {{ form_book_table.as_p }}
+                <button type="submit" class="btn btn-primary w-100">Reserve Now</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
+        <div class="scroll-text">Scroll to Explore</div>
+        <div class="scroll-arrow">
+        <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+
+</section><!-- /Hero Section -->

@@ -1,0 +1,43 @@
+{% load static %}
+
+<section class="chef-recommendations" data-aos="fade-up" data-aos-delay="500">
+    <div class="section-header">
+        <h3><i class="bi bi-star-fill"></i> Today's Chef Recommendations</h3>
+        <p>Carefully curated dishes featuring the finest seasonal ingredients</p>
+    </div>
+
+    <div class="row g-4">
+        {% for dish in chef_picks %}
+            <div class="col-lg-6">
+                <div class="recommendation-card">
+                    <div class="recommendation-image">
+                    <img src="/media/{{ dish.chef_dish_img }}" alt="Chef Recommendation" class="img-fluid">
+                        
+                        <div class="chef-badge">
+                            <i class="bi bi-award"></i>
+                            <span>Chef's Pick</span>
+                        </div>
+                    </div>
+                    <div class="recommendation-content">
+                        <div class="recommendation-header">
+                            <h4>{{ dish.name }}</h4>
+                            <div class="recommendation-price">${{ dish.price }}</div>
+                        </div>
+                        <p>{{ dish.desc }}</p>
+                        <div class="recommendation-details">
+                            <div class="serving-info">
+                                <i class="bi bi-clock"></i>
+                                <span>{{ dish.preparation_time }} preparation</span>
+                            </div>
+                            <div class="dietary-info">
+                                {% if dish.dietary_info %}
+                                    <span class="mini-badge">{{ dish.dietary_info }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

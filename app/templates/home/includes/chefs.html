@@ -1,0 +1,32 @@
+{% load static %}
+<div class="container section-title" data-aos="fade-up">
+    <span class="description-title">Chefs</span>
+    <h2>Chefs</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+</div>End Section Title 
+<div class="row g-4 team-grid mt-2">
+    {% for chef in chefs %}
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="{{ forloop.counter|add:1 }}00">
+            <article class="chef-card h-100">
+            <div class="image-wrapper">
+                <img src="{{chef.img_link.url}}" alt="{{ chef.name }}" class="img-fluid" loading="lazy">
+                <ul class="social list-unstyled m-0">
+                <li><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                <li><a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a></li>
+                <li><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="content p-3">
+                <h4 class="name mb-1">{{ chef.name }}</h4>
+                <p class="role mb-2">{{ chef.chef_category.category }}</p>
+                <p class="excerpt mb-3">{{ chef.desc }}</p>
+                {% if chef.main_chef %}
+                <div class="badges d-flex flex-wrap gap-2">
+                    <span class="mini-badge"><i class="bi bi-award me-1"></i> Head Chef</span>
+                </div>
+                {% endif %}
+            </div>
+            </article>
+        </div>
+    {% endfor %}
+</div>
